@@ -49,6 +49,7 @@
       :readonly="inputOptions.readonly"
       :required="inputOptions.required"
       :tabindex="inputOptions.tabindex"
+      :value="modelValue"
       @blur="onBlur"
       @focus="onFocus"
       @input="onInput"
@@ -90,7 +91,7 @@ export default {
     clickOutside,
   },
   props: {
-    value: {
+    modelValue: {
       type: String,
       default: '',
     },
@@ -475,7 +476,8 @@ export default {
       this.emitInput(this.phone);
     },
     emitInput(value) {
-      this.$emit('input', value, this.phoneObject, this.$refs.input);
+      this.$emit('update:modelValue', value);
+      this.$emit('on-input', value, this.phoneObject, this.$refs.input);
     },
     onBlur() {
       this.$emit('blur');
