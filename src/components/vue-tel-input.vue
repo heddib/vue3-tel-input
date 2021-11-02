@@ -303,6 +303,7 @@ export default {
   },
   mounted() {
     if (this.modelValue) {
+      alert('debug');
       this.phone = this.modelValue.trim();
     }
 
