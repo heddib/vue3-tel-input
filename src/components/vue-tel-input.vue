@@ -303,9 +303,11 @@ export default {
   },
   mounted() {
     if (this.modelValue) {
-      alert('debug');
       this.phone = this.modelValue.trim();
     }
+
+    console.log('Test');
+    console.log(this.modelValue);
 
     this.cleanInvalidCharacters();
 
